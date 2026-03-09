@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bl6lfnlmg4xsk" path="res://Asset/Background/CloseBackground/CBG03_ProjectLittleAdventurerAndie2D.png" id="15_ijdku"]
 [ext_resource type="Texture2D" uid="uid://b6sn8r7ikfxtm" path="res://Asset/Background/CloseBackground/CBG05_ProjectLittleAdventurerAndie2D.png" id="16_wo11f"]
 [ext_resource type="PackedScene" uid="uid://b1h1jy83dofxx" path="res://Game/Scene/enemy.tscn" id="20_ijdku"]
+[ext_resource type="Script" uid="uid://bow1pb51nf37a" path="res://Game/Script/UI_Manager.gd" id="27_ccwv3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w1egk"]
 friction = 0.0
@@ -1135,6 +1136,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hoyip"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7372549, 0.6431373, 0.25882354, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccwv3"]
+bg_color = Color(0.7372549, 0.6431373, 0.25882354, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="Root" type="Node2D" unique_id=181274764]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=2142302446]
@@ -1278,5 +1298,29 @@ position = Vector2(696, -80)
 
 [node name="Enemy2" parent="." unique_id=249151632 instance=ExtResource("20_ijdku")]
 position = Vector2(496, -136)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=846379205]
+layer = 110
+script = ExtResource("27_ccwv3")
+
+[node name="GameScreen" type="Control" parent="CanvasLayer" unique_id=509069735]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/GameScreen" unique_id=1357049277]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 215.0
+offset_bottom = 35.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hoyip")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ccwv3")
+value = 100.0
+show_percentage = false
 
 [connection signal="body_entered" from="Area2D_PlayerResetArea" to="Area2D_PlayerResetArea" method="_on_body_entered"]
