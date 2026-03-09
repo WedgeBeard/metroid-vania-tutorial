@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c3834j86vcufm"]
+
+[ext_resource type="Script" uid="uid://bk2dvl5fgsn5j" path="res://Game/Script/VFXController.gd" id="1_eqcwt"]
+[ext_resource type="Texture2D" uid="uid://knnt85j12vss" path="res://Asset/VFX/VFX_Land.png" id="2_eqcwt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx8nn"]
+atlas = ExtResource("2_eqcwt")
+region = Rect2(0, 0, 80, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3j4m"]
+atlas = ExtResource("2_eqcwt")
+region = Rect2(80, 0, 80, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwdqv"]
+atlas = ExtResource("2_eqcwt")
+region = Rect2(160, 0, 80, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nk82"]
+atlas = ExtResource("2_eqcwt")
+region = Rect2(240, 0, 80, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjf2q"]
+atlas = ExtResource("2_eqcwt")
+region = Rect2(320, 0, 80, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kjou3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx8nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3j4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwdqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nk82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjf2q")
+}],
+"loop": false,
+"name": &"Start",
+"speed": 15.0
+}]
+
+[node name="VFX_land" type="Node2D" unique_id=1603218973]
+script = ExtResource("1_eqcwt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2005043045]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_kjou3")
+animation = &"Start"

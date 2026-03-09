@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bn8u7aytk5hqy"]
+
+[ext_resource type="Texture2D" uid="uid://c4udj1y07fe4x" path="res://Asset/VFX/VFX_JumpUp.png" id="1_0p4t1"]
+[ext_resource type="Script" uid="uid://bk2dvl5fgsn5j" path="res://Game/Script/VFXController.gd" id="1_6dcgx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dcgx"]
+atlas = ExtResource("1_0p4t1")
+region = Rect2(0, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr4hl"]
+atlas = ExtResource("1_0p4t1")
+region = Rect2(48, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi5y2"]
+atlas = ExtResource("1_0p4t1")
+region = Rect2(96, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m77ra"]
+atlas = ExtResource("1_0p4t1")
+region = Rect2(144, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5icu"]
+atlas = ExtResource("1_0p4t1")
+region = Rect2(192, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkr16"]
+atlas = ExtResource("1_0p4t1")
+region = Rect2(240, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc36s"]
+atlas = ExtResource("1_0p4t1")
+region = Rect2(288, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvicb"]
+atlas = ExtResource("1_0p4t1")
+region = Rect2(336, 0, 48, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kjou3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dcgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr4hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi5y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m77ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5icu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkr16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kc36s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvicb")
+}],
+"loop": false,
+"name": &"Start",
+"speed": 15.0
+}]
+
+[node name="VFX_jumpUp" type="Node2D" unique_id=1603218973]
+script = ExtResource("1_6dcgx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2005043045]
+position = Vector2(0, -28)
+sprite_frames = SubResource("SpriteFrames_kjou3")
+animation = &"Start"
