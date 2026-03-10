@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://b6sn8r7ikfxtm" path="res://Asset/Background/CloseBackground/CBG05_ProjectLittleAdventurerAndie2D.png" id="16_wo11f"]
 [ext_resource type="PackedScene" uid="uid://b1h1jy83dofxx" path="res://Game/Scene/enemy.tscn" id="20_ijdku"]
 [ext_resource type="Script" uid="uid://bow1pb51nf37a" path="res://Game/Script/UI_Manager.gd" id="27_ccwv3"]
+[ext_resource type="PackedScene" uid="uid://bq5tur25frbt5" path="res://Game/Scene/coin.tscn" id="28_3pgyt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w1egk"]
 friction = 0.0
@@ -1155,6 +1156,10 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="LabelSettings" id="LabelSettings_3pgyt"]
+font_size = 40
+font_color = Color(0.7372549, 0.6431373, 0.25882354, 1)
+
 [node name="Root" type="Node2D" unique_id=181274764]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=2142302446]
@@ -1322,5 +1327,48 @@ theme_override_styles/background = SubResource("StyleBoxFlat_hoyip")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ccwv3")
 value = 100.0
 show_percentage = false
+
+[node name="CoinLabel" type="Label" parent="CanvasLayer/GameScreen" unique_id=980998153]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 55.0
+grow_horizontal = 0
+text = "0"
+label_settings = SubResource("LabelSettings_3pgyt")
+
+[node name="Coins" type="Node2D" parent="." unique_id=715157323]
+
+[node name="Coin" parent="Coins" unique_id=874693672 instance=ExtResource("28_3pgyt")]
+position = Vector2(440, -40)
+
+[node name="Coin2" parent="Coins" unique_id=296058915 instance=ExtResource("28_3pgyt")]
+position = Vector2(376, -72)
+
+[node name="Coin3" parent="Coins" unique_id=742189306 instance=ExtResource("28_3pgyt")]
+position = Vector2(424, -104)
+
+[node name="Coin4" parent="Coins" unique_id=1000581385 instance=ExtResource("28_3pgyt")]
+position = Vector2(520, -16)
+
+[node name="Coin5" parent="Coins" unique_id=284700746 instance=ExtResource("28_3pgyt")]
+position = Vector2(544, -16)
+
+[node name="Coin6" parent="Coins" unique_id=1523268239 instance=ExtResource("28_3pgyt")]
+position = Vector2(568, -16)
+
+[node name="Coin7" parent="Coins" unique_id=1869071467 instance=ExtResource("28_3pgyt")]
+position = Vector2(232, -40)
+
+[node name="Coin8" parent="Coins" unique_id=277989918 instance=ExtResource("28_3pgyt")]
+position = Vector2(208, -40)
+
+[node name="Coin9" parent="Coins" unique_id=406465901 instance=ExtResource("28_3pgyt")]
+position = Vector2(184, -40)
+
+[node name="Coin10" parent="Coins" unique_id=2094532031 instance=ExtResource("28_3pgyt")]
+position = Vector2(160, -40)
 
 [connection signal="body_entered" from="Area2D_PlayerResetArea" to="Area2D_PlayerResetArea" method="_on_body_entered"]

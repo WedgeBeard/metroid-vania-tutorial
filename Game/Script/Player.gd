@@ -33,7 +33,13 @@ var currentHealth:
 		currentHealth = new_value
 		emit_signal("playerHealthUpdated", currentHealth, MAX_HEALTH)
 
+var currentCoin = 0:
+	set(new_value):
+		currentCoin = new_value
+		emit_signal("playerCoinUpdated", currentCoin)
+		
 signal playerHealthUpdated(newValue, maxValue)
+signal playerCoinUpdated(newValue)
 const MAX_HEALTH = 100				
 
 
@@ -165,4 +171,10 @@ func ApplyDamage(damage:int):
 		currentHealth = 0
 		currentState = PlayerState.Dead
 	
+func CollectedCoin(value:int):
+	currentCoin += value
 	
+	if currentHealth < MAX_HEALTH:
+		currentHealth += value * 3
+		if currentHealth > MAX_HEALTH:
+			currentHealth = MAX_HEALTH
