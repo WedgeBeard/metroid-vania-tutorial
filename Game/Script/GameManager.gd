@@ -1,4 +1,5 @@
 extends Node
+# This is a Singleton (Global Script)
 
 var player : PlayerController
 var playerOriginalPos
@@ -19,6 +20,12 @@ func SpawnVFX(vfxToSpawn : Resource, position : Vector2):
 func PlayerIsDead():
 	emit_signal("gameOver")
 	
-func PlayerEnteredTheEndDoor():
+func PlayerEnteredTheEndDoor(nextLevel : String):
 	player.SwitchStateToUncontrollable()
-	emit_signal("gameOver")
+	
+	if nextLevel:
+		get_tree().call_deferred("change_scene_to_file", nextLevel) #using call_deferred instead of change_scene_to_file directly due to error
+	else:
+		emit_signal("gameOver")
+	
+	

@@ -9,6 +9,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if player:
 		player.CollectedCoin(value)
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if animated_sprite_2d.is_playing() == false:
 		queue_free()

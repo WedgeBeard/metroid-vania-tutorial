@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://dba7fih0gseq8"]
+
+[ext_resource type="Script" uid="uid://bow1pb51nf37a" path="res://Game/Script/UI_Manager.gd" id="1_br82r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hoyip"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7372549, 0.6431373, 0.25882354, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccwv3"]
+bg_color = Color(0.7372549, 0.6431373, 0.25882354, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_3pgyt"]
+font_size = 40
+font_color = Color(0.7372549, 0.6431373, 0.25882354, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4d5b2"]
+font_size = 40
+font_color = Color(0.8235294, 0.6745098, 0.08627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v8om"]
+bg_color = Color(0.8235294, 0.6745098, 0.08627451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pgyt"]
+bg_color = Color(0.18039216, 0.6627451, 0.58431375, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4d5b2"]
+bg_color = Color(0.2509804, 0.8666667, 0.7647059, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=263187717]
+layer = 110
+script = ExtResource("1_br82r")
+
+[node name="GameScreen" type="Control" parent="." unique_id=1907176668]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="ProgressBar" parent="GameScreen" unique_id=1439689825]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 215.0
+offset_bottom = 35.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hoyip")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ccwv3")
+value = 100.0
+show_percentage = false
+
+[node name="CoinLabel" type="Label" parent="GameScreen" unique_id=134748548]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 55.0
+grow_horizontal = 0
+text = "0"
+label_settings = SubResource("LabelSettings_3pgyt")
+
+[node name="GameOverScreen" type="Panel" parent="." unique_id=1087007149]
+self_modulate = Color(0, 0, 0, 0.78431374)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="GameOverScreen" unique_id=398051710]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -27.5
+offset_right = 115.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_4d5b2")
+
+[node name="RestartButton" type="Button" parent="GameOverScreen" unique_id=2041086947]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 40.0
+offset_right = 136.0
+offset_bottom = 80.00009
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_8v8om")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3pgyt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4d5b2")
+text = "Restart Current Level"
+
+[connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_restart_button_pressed"]
