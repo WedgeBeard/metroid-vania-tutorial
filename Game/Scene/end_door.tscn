@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dne7dqovgs14p"]
+
+[ext_resource type="Script" uid="uid://ctdjipwr6l3k8" path="res://Game/Script/end_door.gd" id="1_lyhsf"]
+[ext_resource type="Texture2D" uid="uid://crc7lj7ij5avs" path="res://Asset/Animations/Other/Door.png" id="1_m1y8n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyhsf"]
+atlas = ExtResource("1_m1y8n")
+region = Rect2(0, 0, 196, 146)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyub8"]
+atlas = ExtResource("1_m1y8n")
+region = Rect2(196, 0, 196, 146)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmmhy"]
+atlas = ExtResource("1_m1y8n")
+region = Rect2(392, 0, 196, 146)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cswkl"]
+atlas = ExtResource("1_m1y8n")
+region = Rect2(588, 0, 196, 146)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl1ya"]
+atlas = ExtResource("1_m1y8n")
+region = Rect2(784, 0, 196, 146)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8mmi"]
+atlas = ExtResource("1_m1y8n")
+region = Rect2(980, 0, 196, 146)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xylgd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyhsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyub8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmmhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cswkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pl1ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8mmi")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uj1j"]
+size = Vector2(20, 128)
+
+[node name="EndDoor" type="Area2D" unique_id=54554974]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_lyhsf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1985381299]
+z_index = -10
+position = Vector2(0, -73)
+sprite_frames = SubResource("SpriteFrames_xylgd")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.65485346
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1811658391]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_1uj1j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
